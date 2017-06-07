@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5159C6B21EE87F1400AB1001 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5159C6B11EE87F1400AB1001 /* Attendee.swift */; };
 		51C713151EE67A570006EECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C713141EE67A570006EECD /* AppDelegate.swift */; };
 		51C713171EE67A570006EECD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C713161EE67A570006EECD /* ViewController.swift */; };
 		51C7131A1EE67A570006EECD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C713181EE67A570006EECD /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5159C6B11EE87F1400AB1001 /* Attendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
 		51C713111EE67A570006EECD /* CheckMeIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMeIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C713141EE67A570006EECD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C713161EE67A570006EECD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				51C713141EE67A570006EECD /* AppDelegate.swift */,
 				51C713161EE67A570006EECD /* ViewController.swift */,
+				5159C6B11EE87F1400AB1001 /* Attendee.swift */,
 				51C713181EE67A570006EECD /* Main.storyboard */,
 				51C7131E1EE67A570006EECD /* Assets.xcassets */,
 				51C713201EE67A570006EECD /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				51C7131D1EE67A570006EECD /* CheckMeIn.xcdatamodeld in Sources */,
 				51C713171EE67A570006EECD /* ViewController.swift in Sources */,
 				51C713151EE67A570006EECD /* AppDelegate.swift in Sources */,
+				5159C6B21EE87F1400AB1001 /* Attendee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +320,7 @@
 				51C713281EE67A570006EECD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

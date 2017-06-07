@@ -13,7 +13,7 @@ class ViewController: UITableViewController {
     @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var clearButton: UIBarButtonItem!
     
-    var namesArray = [String]()
+    var namesArray = [Attendee]()
     
     
     override func viewDidLoad() {
@@ -68,7 +68,10 @@ class ViewController: UITableViewController {
     
     
     func saveToList(memberName: String) {
-        namesArray.append(memberName)
+        
+        let lastMember = Attendee(firstName: memberName, lastName: "foo", description: "bar", date: Date())
+        
+        namesArray.append(lastMember)
         let newIndex = IndexPath(row: namesArray.count - 1, section: 0)
         tableView.insertRows(at: [newIndex], with: .automatic)
         setToDefaults()
@@ -78,8 +81,17 @@ class ViewController: UITableViewController {
     
     func getFromDefaults() {
         
-        if let names = UserDefaults.standard.array(forKey: "savedNames") {
-            namesArray = names as! [String]
+        if let encodedNames = UserDefaults.standard.data(forKey: "savedNames") {
+            let decoder = JSONDecoder()
+            
+            do {
+                let decodedArray = try decoder.decode([Attendee].self, from: encodedNames)
+                namesArray = decodedArray 
+            }
+            catch {
+                fatalError("Could not retreive array from userdefaults.")
+            }
+            
         }
         else {
             setToDefaults()
@@ -88,7 +100,15 @@ class ViewController: UITableViewController {
     }
     
     func setToDefaults() {
-        UserDefaults.standard.set(namesArray, forKey: "savedNames")
+        let encoder = JSONEncoder()
+        
+        do {
+            let encodedNamesArray = try encoder.encode(namesArray)
+            UserDefaults.standard.set(encodedNamesArray, forKey: "savedNames")
+        }
+        catch {
+            fatalError("Cannot encode array")
+        }
         
     }
     
@@ -132,7 +152,8 @@ class ViewController: UITableViewController {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell",
                                                      for: indexPath)
         
-        cell.textLabel?.text = self.namesArray[indexPath.row]
+        cell.textLabel?.text = self.namesArray[indexPath.row].firstName
+        cell.detailTextLabel?.text = self.namesArray[indexPath.row].description
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.textColor = UIColor.black
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
